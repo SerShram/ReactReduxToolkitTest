@@ -13,7 +13,7 @@ function Main() {
       setTodoList([
         ...todoList,
         {
-          id: new Date().toISOString(),
+          id: Date.now(),
           textInput,
           completed: false,
         }
@@ -22,6 +22,28 @@ function Main() {
     }
   }
 
+  const handleChange = (todoId) => {
+    setTodoList(
+      todoList.map(todo => {
+        if(todo.id !== todoId) return todo;
+        return {
+          ...todo,
+          completed: !todo.completed,
+        }
+      }
+    ))
+  }
+
+  const removeTodo = (todoId) => {
+    setTodoList(
+      todoList.filter(todo => todo.id !== todoId)
+    )
+  }
+
+  const getTime = (timeStamp) => {
+    const date= new Date(timeStamp);
+    return date.toDateString() + ', ' + date.getHours() + ":" + date.getMinutes() + ':' + date.getSeconds();
+  }
 
   return (
     <main>
@@ -44,9 +66,20 @@ function Main() {
           {
             todoList.map(todoItem => (
               <li key={todoItem.id} className="todo-item">
-                <input type="checkbox"/>
-                <div className="todo-item__text">{todoItem.textInput}</div>
-                <div className="todo-item__delete">&times;</div>
+                <input
+                  type="checkbox"
+                  className="todo-item__checkbox"
+                  checked={todoItem.completed}
+                  onChange={() => handleChange(todoItem.id)}
+                />
+                <div className="todo-item__text" title={todoItem.textInput}>{todoItem.textInput}</div>
+                <div className="todo-item__date">{getTime(todoItem.id)}</div>
+                <div
+                  className="todo-item__delete"
+                  onClick={() => removeTodo(todoItem.id)}
+                >
+                  &times;
+                </div>
               </li>
             ))
           }

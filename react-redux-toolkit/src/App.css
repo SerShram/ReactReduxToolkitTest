@@ -79,12 +79,32 @@ h1.title {
     padding: 5px 0;
 }
 
+.todo-item__checkbox {
+    cursor: pointer;
+}
+
+.todo-item__checkbox:checked + .todo-item__text {
+    text-decoration: 2px line-through red;
+}
+
 .todo-item__text {
     flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.todo-item__date {
+    flex-shrink: 0;
+}
+
 .todo-item__delete {
     font-size: 30px;
     line-height: 1;
     cursor: pointer;
     color: red;
+}
+
+.todo-item__delete:hover {
+    transform: scale(1.5);
 }
