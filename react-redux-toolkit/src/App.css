@@ -23,9 +23,35 @@ footer {}
     background: #fff;
 }
 
+.navbar {
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid #bdbdbd;
+    padding: 20px 0;
+}
+
+.navbar_item {
+    transition: all .3s;
+}
+
+.navbar_item:hover {
+
+    transform: scale(1.1);
+}
+
+.navbar_item a {
+    font-size: 16px;
+    font-weight: bold;
+    color: darkolivegreen;
+}
+
+.navbar_item a.active {
+    color: #621818;
+}
+
 h1.title {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 20px 0;
 }
 
 .create-todos {

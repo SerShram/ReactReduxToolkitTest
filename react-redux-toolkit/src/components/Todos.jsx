@@ -27,6 +27,7 @@ const Todos = () => {
             <div
               className="todo-item__delete"
               onClick={() => dispatch(removeTodo(todo.id))}
+              title="Remove"
             >
               &times;
             </div>
