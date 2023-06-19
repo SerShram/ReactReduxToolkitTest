@@ -22,7 +22,7 @@ function Main() {
     }
   }
 
-  const handleChange = (todoId) => {
+  const toggleTodo = (todoId) => {
     setTodoList(
       todoList.map(todo => {
         if(todo.id !== todoId) return todo;
@@ -70,7 +70,7 @@ function Main() {
                   type="checkbox"
                   className="todo-item__checkbox"
                   checked={todoItem.completed}
-                  onChange={() => handleChange(todoItem.id)}
+                  onChange={() => toggleTodo(todoItem.id)}
                 />
                 <div className="todo-item__text" title={todoItem.textInput}>{todoItem.textInput}</div>
                 <div className="todo-item__date">{getTime(todoItem.id)}</div>
