@@ -10,7 +10,7 @@ function Header() {
             <NavLink to='/'>Home page</NavLink>
           </li>
           <li className='navbar_item'>
-            <NavLink to='/last-todos'>Deleted todos</NavLink>
+            <NavLink to='/archive'>Archive</NavLink>
           </li>
         </ul>
       </div>

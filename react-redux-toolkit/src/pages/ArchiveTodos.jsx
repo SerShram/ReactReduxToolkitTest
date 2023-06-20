@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useSelector } from "react-redux";
 
-const LastTodos = ({title}) => {
+const archiveTodos = ({title}) => {
   // const deletedTodos = useSelector(state => state.todos.deletedTodos);
 
   return (
@@ -12,4 +12,4 @@ const LastTodos = ({title}) => {
   );
 };
 
-export default LastTodos;
+export default archiveTodos;

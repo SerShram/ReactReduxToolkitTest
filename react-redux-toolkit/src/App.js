@@ -3,8 +3,8 @@ import './App.css';
 import Header from "./components/Header";
 import Main from "./pages/Main";
 import Footer from "./components/Footer";
-import LastTodos from "./pages/LastTodos";
-import React from "react";
+import ArchiveTodos from "./pages/ArchiveTodos";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -15,7 +15,8 @@ function App() {
           <div className="wrapper">
             <Routes>
               <Route path="/" element={<Main title="Todo list"/>}/>
-              <Route path="/last-todos" element={<LastTodos title="Last Todos"/>}/>
+              <Route path="/archive" element={<ArchiveTodos title="Archive Todos"/>}/>
+              <Route path="*" element={<NotFound />}/>
             </Routes>
           </div>
         </main>
