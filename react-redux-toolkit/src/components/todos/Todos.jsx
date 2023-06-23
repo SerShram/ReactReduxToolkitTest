@@ -29,12 +29,15 @@ const Todos = () => {
                 onChange={() => dispatch(toggleTodo(todo.id))}
               />
               <span className="todo-item__text" title={todo.textInput}>{todo.textInput}</span>
+              <div className="todo-item__edit">
+                <img src="/setting.png" alt=""/>
+              </div>
               <span
                 className="todo-item__delete"
                 onClick={() => dispatch(removeTodo(todo.id))}
                 title="Remove"
               >
-              &times;
+              <img src="/cross.png" alt=""/>
             </span>
             </div>
           </li>
