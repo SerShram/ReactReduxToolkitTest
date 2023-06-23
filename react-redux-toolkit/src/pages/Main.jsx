@@ -1,6 +1,6 @@
 import React from 'react';
-import Todos from "../components/Todos";
-import CreatorTodos from "../components/CreatorTodos";
+import Todos from "../components/todos/Todos";
+import CreatorTodos from "../components/todos/CreatorTodos";
 
 function Main({title}) {
 

@@ -6,14 +6,16 @@
     background: lightblue;
 }
 
-header {}
+header {
+}
 
 main {
     flex-grow: 1;
     display: flex;
 }
 
-footer {}
+footer {
+}
 
 .wrapper {
     width: 100%;
@@ -61,11 +63,14 @@ h1.title {
     align-items: center;
     justify-content: center;
 }
+
 .not-found h1 {
     font-size: 50px;
     color: red;
 }
-.not-found {}
+
+.not-found {
+}
 
 .create-todos {
     display: flex;
@@ -99,10 +104,12 @@ h1.title {
     transition: all .3s;
 }
 
-.btn:hover {
-    background: darkolivegreen;
-    box-shadow: 0 2px 7px 2px #bdbdbd;
-    cursor: pointer;
+@media screen and (min-width: 1200px) {
+    .btn:hover {
+        background: darkolivegreen;
+        box-shadow: 0 2px 7px 2px #bdbdbd;
+        cursor: pointer;
+    }
 }
 
 .todos {
@@ -111,11 +118,19 @@ h1.title {
 
 .todo-item {
     border-bottom: 1px solid #bdbdbd;
+    padding: 5px 0;
+}
+
+.todo-item__date {
+    text-align: center;
+    font-size: 12px;
+}
+
+.todo-item__row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
-    padding: 5px 0;
 }
 
 .todo-item__checkbox {
@@ -131,10 +146,6 @@ h1.title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.todo-item__date {
-    flex-shrink: 0;
 }
 
 .todo-item__delete {
