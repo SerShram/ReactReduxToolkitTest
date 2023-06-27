@@ -1,19 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {removeTodo, toggleTodo} from "../../store/todoSlice";
+import {Link} from "react-router-dom";
+import {getTime} from "../../helpers";
 
 const Todos = () => {
   const todoList = useSelector(state => state.todos.todos)
   const dispatch = useDispatch();
-
-  const getTime = (timeStamp) => {
-      const date= new Date(timeStamp);
-      const addZero = (number) => {
-        let string = number.toString()
-        return string.length < 2 ? '0' + string : string
-      }
-      return date.toDateString() + ', ' + date.getHours() + ":" + addZero(date.getMinutes()) + ':' + addZero(date.getSeconds());
-    }
 
   return (
     <ul className="todos">
@@ -29,9 +22,13 @@ const Todos = () => {
                 onChange={() => dispatch(toggleTodo(todo.id))}
               />
               <span className="todo-item__text" title={todo.textInput}>{todo.textInput}</span>
-              <div className="todo-item__edit">
+              <Link
+                className="todo-item__edit"
+                to={`/${todo.id}`}
+                state={{ todo }}
+              >
                 <img src="/setting.png" alt=""/>
-              </div>
+              </Link>
               <span
                 className="todo-item__delete"
                 onClick={() => dispatch(removeTodo(todo.id))}

@@ -20,6 +20,7 @@ const CreatorTodos = () => {
   return (
     <div className="create-todos">
       <input
+        className="app-input"
         placeholder="What should be done?"
         onChange={event => todoInput(event)}
         value={text}

@@ -5,6 +5,7 @@ import Main from "./pages/Main";
 import Footer from "./components/Footer";
 import ArchiveTodos from "./pages/ArchiveTodos";
 import NotFound from "./pages/NotFound";
+import EditTodo from "./pages/EditTodo";
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
         <main>
           <div className="wrapper">
             <Routes>
-              <Route path="/" element={<Main title="Todo list"/>}/>
-              <Route path="/archive" element={<ArchiveTodos title="Archive Todos"/>}/>
-              <Route path="*" element={<NotFound />}/>
+              <Route path="/" element={<Main title="Todo list"/>} />
+              <Route path="/archive" element={<ArchiveTodos title="Archive Todos"/>} />
+              <Route path="/:id" element={<EditTodo title="Edit Todo" />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
         </main>
