@@ -1,11 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate, useLocation} from "react-router-dom";
 import {getTime} from "../helpers";
+import {useDispatch} from "react-redux";
+import {editTodo} from "../store/todoSlice";
 
 const EditTodo = ({title}) => {
   const navigate = useNavigate();
   const {state} = useLocation();
-  const [text, setText] = useState(state.todo.textInput || '');
+  const dispatch = useDispatch();
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    setText(state.todo.textInput);
+  }, [state]);
 
   const goBack = () => navigate(-1);
 
@@ -13,10 +20,19 @@ const EditTodo = ({title}) => {
     setText(e.target.value)
   }
 
+  const saveChanges = (todoId, todoText) => {
+    const text = todoText.trim();
+    const id = parseInt(todoId);
+    if(text.length) {
+      setText(text);
+      dispatch(editTodo({id, text}))
+    }
+  }
+
   return (
     <div className="edit-todo">
       <button className="btn" onClick={goBack}>Back</button>
-      <h1 className="title">{title}</h1>
+      <h1 className="title">{ title }</h1>
       <div className="edit-todo__row">
         <div className="edit-todo__item">
           <div>Time of creation:</div>
@@ -26,10 +42,15 @@ const EditTodo = ({title}) => {
           <div>Todo:</div>
           <input
             className="app-input"
-            value={text}
+            value={ text }
             onChange={event => onInput(event)}
           />
-          <button className="btn">Save</button>
+          <button
+            className="btn"
+            onClick={() => saveChanges(state.todo.id, text)}
+          >
+            Save
+          </button>
         </div>
         <div className="edit-todo__item">
           <div>Status:</div>
