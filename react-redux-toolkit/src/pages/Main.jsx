@@ -6,9 +6,11 @@ function Main({title}) {
 
   return (
     <>
-      <h1 className="title">{title}</h1>
-      <CreatorTodos/>
-      <Todos/>
+      <div className="wrapper">
+        <h1 className="title">{title}</h1>
+        <CreatorTodos/>
+        <Todos/>
+      </div>
     </>
   );
 }

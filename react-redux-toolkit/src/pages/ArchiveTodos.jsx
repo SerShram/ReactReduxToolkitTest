@@ -6,8 +6,10 @@ const archiveTodos = ({title}) => {
 
   return (
     <>
-      <h1 className='title'>{title}</h1>
-      <p style={{textAlign: 'center', fontSize: '20px', color: 'red'}}>Page is being developed</p>
+      <div className="wrapper">
+        <h1 className='title'>{title}</h1>
+        <p style={{textAlign: 'center', fontSize: '20px', color: 'red'}}>Page is being developed</p>
+      </div>
     </>
   );
 };

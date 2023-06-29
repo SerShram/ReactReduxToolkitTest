@@ -76,8 +76,6 @@ h1.title {
     color: red;
 }
 
-.not-found {}
-
 .create-todos {
     display: flex;
     align-items: center;

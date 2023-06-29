@@ -25,7 +25,7 @@ const EditTodo = ({title}) => {
   const saveChanges = (todoId, todoText) => {
     const text = todoText.trim();
     const id = parseInt(todoId);
-    if(text.length) {
+    if (text.length) {
       setText(text);
       dispatch(editTodo({id, text}))
       setPopupOpened(true);
@@ -34,42 +34,44 @@ const EditTodo = ({title}) => {
 
   return (
     <>
-      <div className="edit-todo">
-        <button className="btn" onClick={goBack}>Back</button>
-        <h1 className="title">{ title }</h1>
-        <div className="edit-todo__row">
-          <div className="edit-todo__item">
-            <div>Time of creation:</div>
-            <span>{getTime(state.todo.id)}</span>
-          </div>
-          <div className="edit-todo__item">
-            <div>Task:</div>
-            <input
-              className="app-input"
-              value={ text }
-              onChange={event => onInput(event)}
-            />
-            <button
-              className="btn"
-              onClick={() => saveChanges(state.todo.id, text)}
-            >
-              Save
-            </button>
-          </div>
-          <div className="edit-todo__item">
-            <div>Status:</div>
-            <span className={`status-${state.todo.completed ? 'closed' : 'opened'}`}>
+      <div className="wrapper">
+        <div className="edit-todo">
+          <button className="btn" onClick={goBack}>Back</button>
+          <h1 className="title">{title}</h1>
+          <div className="edit-todo__row">
+            <div className="edit-todo__item">
+              <div>Time of creation:</div>
+              <span>{getTime(state.todo.id)}</span>
+            </div>
+            <div className="edit-todo__item">
+              <div>Task:</div>
+              <input
+                className="app-input"
+                value={text}
+                onChange={event => onInput(event)}
+              />
+              <button
+                className="btn"
+                onClick={() => saveChanges(state.todo.id, text)}
+              >
+                Save
+              </button>
+            </div>
+            <div className="edit-todo__item">
+              <div>Status:</div>
+              <span className={`status-${state.todo.completed ? 'closed' : 'opened'}`}>
             {state.todo.completed ? 'Closed' : 'Opened'}
           </span>
+            </div>
           </div>
         </div>
+        <Popup
+          title="Data saved!"
+          text="Do you want to go to the list or stay on the current page?"
+          popupOpened={popupOpened}
+          setPopupOpened={setPopupOpened}
+        />
       </div>
-      <Popup
-        title="Data saved!"
-        text="Do you want to go to the list or stay on the current page?"
-        popupOpened={popupOpened}
-        setPopupOpened={setPopupOpened}
-      />
     </>
   );
 };
