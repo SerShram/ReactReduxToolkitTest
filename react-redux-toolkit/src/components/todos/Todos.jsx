@@ -3,6 +3,7 @@ import Todo from "./Todo";
 import Paginate from "../paginate/Paginate";
 import {setCurrentPage, setTodosPerPage} from "../../store/todoSlice";
 import Statistic from "./Statistic";
+import {useMemo} from "react";
 
 const Todos = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,8 @@ const Todos = () => {
     dispatch(setTodosPerPage(count));
   }
 
+  const StatisticMemo = useMemo(() => <Statistic totalTodos={totalTodos} />, [totalTodos]);
+
   return (
     <>
       <ul className="todos">
@@ -32,7 +35,7 @@ const Todos = () => {
           ))
         }
       </ul>
-      <Statistic totalTodos={totalTodos} />
+      {StatisticMemo}
       <Paginate
         totalItemsCount={totalTodos.length}
         itemsPerPage={todosPerPage}

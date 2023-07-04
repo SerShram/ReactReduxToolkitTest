@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Statistic = ({totalTodos}) => {
   let openedTodos = 0;
