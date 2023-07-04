@@ -2,6 +2,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Todo from "./Todo";
 import Paginate from "../paginate/Paginate";
 import {setCurrentPage, setTodosPerPage} from "../../store/todoSlice";
+import Statistic from "./Statistic";
 
 const Todos = () => {
   const dispatch = useDispatch();
@@ -17,8 +18,9 @@ const Todos = () => {
   const setPageOfPaginate = (pageNumber) => {
     pageNumber !== currentPage && dispatch(setCurrentPage(pageNumber));
   }
-  const setCountTodosPerPage = (count) => {
-    dispatch(setTodosPerPage(count++));
+  const setCountTodosPerPage = (valueSelect) => {
+    const count = parseInt(valueSelect);
+    dispatch(setTodosPerPage(count));
   }
 
   return (
@@ -30,6 +32,7 @@ const Todos = () => {
           ))
         }
       </ul>
+      <Statistic totalTodos={totalTodos} />
       <Paginate
         totalItemsCount={totalTodos.length}
         itemsPerPage={todosPerPage}

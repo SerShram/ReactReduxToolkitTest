@@ -28,15 +28,14 @@ const Paginate = ({totalItemsCount, itemsPerPage, currentPage, setCurrentPage, s
         }
       </ul>
       <div className={s.selection}>
-        <div className={s.selection_title}>On the page</div>
         <select
           value={itemsPerPage}
           onChange={(event) => setSelectValue(event)}
         >
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="20">20</option>
+          <option value="3">3 / pages</option>
+          <option value="5">5 / pages</option>
+          <option value="10">10 / pages</option>
+          <option value="20">20 / pages</option>
         </select>
       </div>
     </div>

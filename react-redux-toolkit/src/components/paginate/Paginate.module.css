@@ -2,12 +2,22 @@
     display: flex;
     align-items: center;
 }
+@media screen and (max-width: 576px) {
+    .paginate_row {
+        flex-direction: column;
+    }
+}
 
 .paginate {
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media screen and (max-width: 576px) {
+    .paginate {
+        margin-bottom: 20px;
+    }
 }
 
 .page {
@@ -39,14 +49,6 @@
     flex-direction: column;
 }
 
-.selection_title {
-    font-size: 14px;
-    font-weight: bold;
-    color: darkolivegreen;
-    /*text-transform: uppercase;*/
-    margin-bottom: 5px;
-}
-
 select {
     background: darkseagreen;
     border: 2px solid darkolivegreen;
@@ -54,10 +56,10 @@ select {
     width: 100px;
     padding: 5px;
     font-size: 14px;
-    font-weight: bold;
     color: #ffffff;
 }
-
-select:hover {
-    cursor: pointer;
+@media screen and (min-width: 1200px) {
+    select:hover {
+        cursor: pointer;
+    }
 }
