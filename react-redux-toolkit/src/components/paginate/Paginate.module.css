@@ -1,0 +1,63 @@
+.paginate_row {
+    display: flex;
+    align-items: center;
+}
+
+.paginate {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page {
+    width: 40px;
+    height: 40px;
+    border: 2px darkseagreen solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2px;
+    transition: all .2s;
+}
+@media screen and (min-width: 1200px) {
+    .page:not(.active):hover {
+        background: #8fbc8f40;
+        cursor: pointer;
+    }
+}
+
+.page.active {
+    background: darkseagreen;
+    color: #ffffff;
+}
+
+.selection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.selection_title {
+    font-size: 14px;
+    font-weight: bold;
+    color: darkolivegreen;
+    /*text-transform: uppercase;*/
+    margin-bottom: 5px;
+}
+
+select {
+    background: darkseagreen;
+    border: 2px solid darkolivegreen;
+    border-radius: 5px;
+    width: 100px;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+select:hover {
+    cursor: pointer;
+}
