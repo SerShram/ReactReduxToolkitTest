@@ -6,16 +6,21 @@
     background: lightblue;
 }
 
-header {
-
-}
+header {}
 
 main {
     flex-grow: 1;
     display: flex;
 }
 
-footer {
+footer {}
+
+footer .copy {
+    border-top: 1px solid #bdbdbd;
+    color: darkolivegreen;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .wrapper {
@@ -164,6 +169,11 @@ h1.title {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+@media (max-width: 576px) {
+    .todo-item__text {
+        font-size: 12px;
+    }
+}
 
 .todo-item__edit, .todo-item__delete {
     flex-shrink: 0;
@@ -197,6 +207,21 @@ h1.title {
 .edit-todo__item {
     font-size: 16px;
     margin-bottom: 30px;
+}
+
+.edit-todo__textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px 20px;
+    border: 2px solid #bdbdbd;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.edit-todo__textarea:focus {
+    border-color: #bdbdbd;
+    outline: 0;
 }
 
 .edit-todo__item {

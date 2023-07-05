@@ -8,8 +8,9 @@ const Paginate = ({totalItemsCount, itemsPerPage, currentPage, setCurrentPage, s
     pageNumbers.push(el);
   }
 
-  const setSelectValue = (event) => {
-    setCountItemsPerPage(event.target.value)
+  const setSelectValue = (value) => {
+    setCountItemsPerPage(value);
+    setCurrentPage(1);
   }
 
   return (
@@ -30,7 +31,7 @@ const Paginate = ({totalItemsCount, itemsPerPage, currentPage, setCurrentPage, s
       <div className={s.selection}>
         <select
           value={itemsPerPage}
-          onChange={(event) => setSelectValue(event)}
+          onChange={(event) => setSelectValue(event.target.value)}
         >
           <option value="3">3 / pages</option>
           <option value="5">5 / pages</option>

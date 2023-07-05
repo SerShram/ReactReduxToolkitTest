@@ -7,7 +7,7 @@ function Header() {
       <div className="wrapper">
         <ul className="navbar">
           <li className='navbar_item'>
-            <NavLink to='/'>Home page</NavLink>
+            <NavLink to='/'>Home</NavLink>
           </li>
           <li className='navbar_item'>
             <NavLink to='/archive'>Archive</NavLink>

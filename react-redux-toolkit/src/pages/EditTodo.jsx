@@ -45,8 +45,8 @@ const EditTodo = ({title}) => {
             </div>
             <div className="edit-todo__item">
               <div>Task:</div>
-              <input
-                className="app-input"
+              <textarea
+                className="edit-todo__textarea"
                 value={text}
                 onChange={event => onInput(event)}
               />

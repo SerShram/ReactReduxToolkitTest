@@ -4,7 +4,9 @@ function Footer() {
   return (
     <footer>
       <div className="wrapper">
-        footer
+        <div className="copy">
+          &copy;Created by Shramko Serge
+        </div>
       </div>
     </footer>
   );
