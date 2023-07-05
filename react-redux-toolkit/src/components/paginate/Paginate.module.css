@@ -1,4 +1,5 @@
 .paginate_row {
+    justify-self: flex-end;
     display: flex;
     align-items: center;
 }

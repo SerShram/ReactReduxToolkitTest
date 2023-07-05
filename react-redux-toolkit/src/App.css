@@ -6,16 +6,21 @@
     background: lightblue;
 }
 
-header {
-
-}
+header {}
 
 main {
     flex-grow: 1;
     display: flex;
 }
 
-footer {
+footer {}
+
+footer .copy {
+    border-top: 1px solid #bdbdbd;
+    color: darkolivegreen;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .wrapper {
