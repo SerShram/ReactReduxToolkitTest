@@ -13,14 +13,12 @@ function App() {
       <div className="App">
         <Header/>
         <main>
-          {/*<div className="wrapper">*/}
-            <Routes>
-              <Route path="/" element={<Main title="Todo list"/>} />
-              <Route path="/archive" element={<ArchiveTodos title="Archive Todos"/>} />
-              <Route path="/:id" element={<EditTodo title="Edit Todo" />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          {/*</div>*/}
+          <Routes>
+            <Route path="/" element={<Main title="Todo list"/>}/>
+            <Route path="/archive" element={<ArchiveTodos title="Archive Todos"/>}/>
+            <Route path="/:id" element={<EditTodo title="Edit Todo"/>}/>
+            <Route path="*" element={<NotFound/>}/>
+          </Routes>
         </main>
         <Footer/>
       </div>
