@@ -57,11 +57,11 @@ footer .copy {
 .navbar_item a {
     font-size: 16px;
     font-weight: bold;
-    color: darkolivegreen;
+    color: dimgrey;
 }
 
 .navbar_item a.active {
-    color: #621818;
+    color: darkolivegreen;
 }
 
 h1.title {
@@ -264,7 +264,9 @@ h1.title {
     font-weight: bold;
 }
 
-.statistic-total {}
+.statistic-total {
+    color: dimgrey;
+}
 .statistic-closed {
     color: red;
 }
