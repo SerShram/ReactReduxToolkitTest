@@ -175,7 +175,7 @@ h1.title {
     }
 }
 
-.todo-item__edit, .todo-item__delete {
+.todo-item__edit, .todo-item__delete, .todo-item__archive {
     flex-shrink: 0;
     width: 20px;
     height: 20px;
@@ -183,13 +183,13 @@ h1.title {
     transition: all .3s;
 }
 
-.todo-item__edit img, .todo-item__delete img {
+.todo-item__edit img, .todo-item__delete img, .todo-item__archive img {
     width: 100%;
     object-fit: cover;
 }
 
 
-.todo-item__edit:hover, .todo-item__delete:hover {
+.todo-item__edit:hover, .todo-item__delete:hover, .todo-item__archive:hover {
     transform: scale(1.3);
 }
 
@@ -272,4 +272,14 @@ h1.title {
 }
 .statistic-opened {
     color: green;
+}
+
+.archive-count {
+    color: dimgrey;
+    margin-bottom: 20px;
+}
+
+.archive-count span {
+    font-size: 20px;
+    font-weight: bold;
 }

@@ -6,20 +6,21 @@ const todoSlice = createSlice({
     todos: [
       {
         id: 1,
-        textInput: 'Example 1',
+        text: 'Example 1',
         completed: false,
       },
       {
         id: 2,
-        textInput: 'Example 2',
+        text: 'Example 2',
         completed: true,
       },
       {
         id: 3,
-        textInput: 'Example 3',
+        text: 'Example 3',
         completed: false,
       }
     ],
+    archiveTodos: [],
     currentPage: 1,
     todosPerPage: 5
   },
@@ -28,7 +29,7 @@ const todoSlice = createSlice({
       state.todos.unshift(
         {
           id: Date.now(),
-          textInput: action.payload,
+          text: action.payload,
           completed: false,
         }
       )
@@ -42,14 +43,37 @@ const todoSlice = createSlice({
     },
     editTodo(state, action) {
       const editedTodo = state.todos.find(todo => todo.id === action.payload.id)
-      editedTodo.textInput = action.payload.text;
+      editedTodo.text = action.payload.text;
     },
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
     },
     setTodosPerPage(state, action) {
       state.todosPerPage = action.payload;
-    }
+    },
+    relocateToArchive(state, action) {
+      state.todos = state.todos.filter(todo => {
+        if(todo.id !== action.payload) {
+          return true
+        } else {
+          state.archiveTodos.push(todo);
+          return false
+        }
+      })
+    },
+    relocateToList(state, action) {
+      state.archiveTodos = state.archiveTodos.filter(todo => {
+        if(todo.id !== action.payload) {
+          return true
+        } else {
+          state.todos.unshift(todo);
+          return false
+        }
+      })
+    },
+    removeArchiveTodo(state, action) {
+      state.archiveTodos = state.archiveTodos.filter(todo => todo.id !== action.payload)
+    },
   }
 })
 
@@ -60,6 +84,9 @@ export const {
   editTodo,
   setCurrentPage,
   setTodosPerPage,
+  relocateToArchive,
+  relocateToList,
+  removeArchiveTodo
 } = todoSlice.actions;
 
 export default todoSlice.reducer;
