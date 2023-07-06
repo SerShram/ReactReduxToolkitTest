@@ -1,8 +1,6 @@
 import React from 'react';
 import {getTime} from "../helpers";
 import {removeArchiveTodo, relocateToList} from "../store/todoSlice";
-import {Link} from "react-router-dom";
-import settings from "../assets/images/setting.png";
 import arrow from "../assets/images/arrow_green.png";
 import cross from "../assets/images/cross.png";
 import {useDispatch, useSelector} from "react-redux";
