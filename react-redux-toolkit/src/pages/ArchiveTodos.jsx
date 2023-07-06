@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {getTime} from "../helpers";
 import {removeArchiveTodo, relocateToList} from "../store/todoSlice";
 import arrow from "../assets/images/arrow_green.png";
 import cross from "../assets/images/cross.png";
 import {useDispatch, useSelector} from "react-redux";
+import Statistic from "../components/todos/Statistic";
 
 const ArchiveTodos = ({title}) => {
   const dispatch = useDispatch();
   const archiveTodos = useSelector(state => state.todos.archiveTodos);
+
+  const StatisticMemo = useMemo(() => <Statistic totalTodos={archiveTodos} />, [archiveTodos]);
 
   return (
     <>
@@ -17,13 +20,16 @@ const ArchiveTodos = ({title}) => {
         <div className="archive-count">
           Entries per page = <span>{archiveTodos.length || 'Archive is empty'}</span>
         </div>
+        {StatisticMemo}
         <ul className="archive-todos">
           {
             archiveTodos.map(todo => (
               <li className="todo-item" key={todo.id}>
                 <div className="todo-item__date">{getTime(todo.id)}</div>
                 <div className="todo-item__row">
-                  <span className="todo-item__text" title={todo.text}>{todo.text}</span>
+                  <span className={`todo-item__text ${todo.completed && 'completed'}`} title={todo.text}>
+                    {todo.text}
+                  </span>
                   <span
                     className="todo-item__archive"
                     onClick={() => dispatch(relocateToList(todo.id))}

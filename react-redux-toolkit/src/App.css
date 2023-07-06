@@ -159,10 +159,6 @@ h1.title {
     cursor: pointer;
 }
 
-.todo-item__checkbox:checked + .todo-item__text {
-    text-decoration: 2px line-through red;
-}
-
 .todo-item__text {
     flex-grow: 1;
     white-space: nowrap;
@@ -173,6 +169,10 @@ h1.title {
     .todo-item__text {
         font-size: 12px;
     }
+}
+
+.todo-item__text.completed {
+    text-decoration: 2px line-through red;
 }
 
 .todo-item__edit, .todo-item__delete, .todo-item__archive {
@@ -272,6 +272,10 @@ h1.title {
 }
 .statistic-opened {
     color: green;
+}
+
+.archive-todos {
+    margin-bottom: 20px;
 }
 
 .archive-count {

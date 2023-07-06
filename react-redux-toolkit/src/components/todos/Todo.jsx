@@ -20,7 +20,9 @@ const Todo = ({todo}) => {
           checked={todo.completed}
           onChange={() => dispatch(toggleTodo(todo.id))}
         />
-        <span className="todo-item__text" title={todo.text}>{todo.text}</span>
+        <span className={`todo-item__text ${todo.completed && 'completed'}`} title={todo.text}>
+          {todo.text}
+        </span>
         <Link
           className="todo-item__edit"
           to={`/${todo.id}`}
