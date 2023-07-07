@@ -13,7 +13,7 @@ const EditTodo = ({title}) => {
   const [popupOpened, setPopupOpened] = useState(false);
 
   useEffect(() => {
-    setText(state.todo.textInput);
+    setText(state.todo.text);
   }, [state]);
 
   const goBack = () => navigate(-1);
